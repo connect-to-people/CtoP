@@ -1,10 +1,3 @@
-
-
-
-export function NavBar({theme, toggleTheme}) {
-  return (
-    <div>
-      NavBar
-    </div>
-  )
+export function NavBar({ theme, toggleTheme }) {
+  return <div>NavBar</div>;
 }
