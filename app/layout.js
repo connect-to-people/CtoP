@@ -4,16 +4,14 @@ import StyledComponentsRegistry from './lib/registry'
 import GlobalThemeWrapper from "./lib/GlobalThemeWrapper"
 
 export const metadata = {
-  title: 'CtoP',
-  description: 'creado por los ctopitos',
-}
+  title: "CtoP",
+  description: "creado por los ctopitos",
+};
 
 export default function RootLayout({ children }) {
-
   return (
-   
-      <html lang="en">
-        <body>
+    <html lang="en">
+      <body>
         <StyledComponentsRegistry>
             <GlobalThemeWrapper>
               <Header/>
@@ -25,4 +23,3 @@ export default function RootLayout({ children }) {
       </html>
   )
 }
-
