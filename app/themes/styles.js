@@ -17,9 +17,35 @@ export const darkTheme = {
 };
 
 export const GlobalStyle = createGlobalStyle`
-*{
-  padding: 0;
+* {
   margin: 0;
+  padding: 0;
   box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+}
+
+body {
+  position: relative;
+  background-color: var(--color-bg);
+  font-size: 1.2rem;
+  color: hsla(0, 0%, 100%, 0.9);
+  overflow-x: hidden;
+}
+
+input,
+button,
+a {
+  font-family: inherit;
+  color: inherit;
+  font-size: inherit;
+  border: none;
+  outline: none;
+}
+
+section,
+header {
+  position: relative;
+  z-index: 10;
 }
 `;
