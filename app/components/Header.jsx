@@ -36,9 +36,6 @@ export function Header() {
   const [theme] = useLocalStorage('theme')
   return (
     <Container>
-      <div>
-
-      </div>
       <Links>
         {links.map(({label, route}) => (
           <li key={route}>
