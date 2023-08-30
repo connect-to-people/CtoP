@@ -2,15 +2,17 @@ import { createGlobalStyle } from "styled-components";
 
 export const defaultTheme = {
       name: "default",
-      primary: "#ddd",
-      secondary: "#fff",
+      primary: "#f55301",
+      secondary: "#6f045c",
+      backgroundColor: "#ededed",
       color: "red",
   }
 
 export const darkTheme = {
       name: "dark",
       primary: "#03a",
-      secondary: "#fff",
+      secondary: "#000",
+      backgroundColor: "#6f045c",
       color: "green"
 };
 
