@@ -70,10 +70,9 @@ const FooterStyled = styled.footer`
   position: relative;
   z-index: 10;
   padding: 5rem 5rem 0 5rem;
-/*   background: url("BackPolygons.png"),
+  background: url("BackPolygons.png"),
     linear-gradient(to top, var(--color-bg), #fc6627);
-  background-size: cover;*/
-  background-color: #fc6627;
+  background-size: cover;
 
   nav {
     display: flex;
