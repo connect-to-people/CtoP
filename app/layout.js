@@ -1,4 +1,4 @@
-import { Header } from "./components/Header"
+import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
 import StyledComponentsRegistry from './lib/registry'
 import GlobalThemeWrapper from "./lib/GlobalThemeWrapper"

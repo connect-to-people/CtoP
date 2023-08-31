@@ -17,6 +17,11 @@ export const darkTheme = {
 };
 
 export const GlobalStyle = createGlobalStyle`
+:root {
+  --color-border: #424242;
+  --color-bg: #111111;
+}
+
 * {
   margin: 0;
   padding: 0;
