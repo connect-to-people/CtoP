@@ -1,4 +1,4 @@
-import { Header } from "./components/Header";
+import { NavBar } from "./components/NavBar";
 import { Footer } from "./components/Footer";
 import StyledComponentsRegistry from './lib/registry'
 import GlobalThemeWrapper from "./lib/GlobalThemeWrapper"
@@ -14,7 +14,7 @@ export default function RootLayout({ children }) {
       <body>
         <StyledComponentsRegistry>
             <GlobalThemeWrapper>
-              <Header/>
+              <NavBar/>
               {children}
               <Footer/>
             </GlobalThemeWrapper>
