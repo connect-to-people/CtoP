@@ -5,15 +5,15 @@ export const defaultTheme = {
       primary: "#f55301",
       secondary: "#6f045c",
       backgroundColor: "#ededed",
-      color: "red",
+      color: "#000",
   }
 
 export const darkTheme = {
       name: "dark",
-      primary: "#03a",
-      secondary: "#000",
-      backgroundColor: "#6f045c",
-      color: "green"
+      primary: "22272b",
+      secondary: "#fff",
+      backgroundColor: "#22272b",
+      color: "#fff"
 };
 
 export const GlobalStyle = createGlobalStyle`

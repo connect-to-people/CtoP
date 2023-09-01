@@ -2,46 +2,21 @@
 
 import React, { useRef } from "react";
 import Image from "next/image";
-import logo from "../../public/sinfonOrange.png"
-/* import Button from "../Button/Button"; */
 import styled from "styled-components";
-import { FaRocket, FaWallet } from "react-icons/fa";
 import { Abril_Fatface } from "next/font/google";
 import hover3d from "../utils/hover";
+import { useLocalStorage } from "usehooks-ts";
 
-const links = [
-  {
-    label: 'Home',
-    route: '/',
-  },
-  {
-    label: 'Quienes somos',
-    route: '/',
-  },
-  {
-    label: 'Servicios',
-    route: '/',
-  },
-  {
-    label: 'Portafolio',
-    route: '/',
-  },
-  {
-    label: 'Consejos',
-    route: '/',
-  },
-  {
-    label: 'Contactos',
-    route: '/',
-  }
-]
 const abril = Abril_Fatface({
   subsets: ["latin"],
   weight: "400",
 });
 
-export function Header() {
-  const hero = useRef<HTMLDivElement>(null);
+export default function Header() {
+  const [theme] = useLocalStorage("theme");
+
+
+  /* const hero = useRef<HTMLDivElement>(null);
 
   const hoverHero = hover3d(hero, {
     x: 30,
@@ -53,27 +28,10 @@ export function Header() {
     x: 20,
     y: -5,
     z: 11,
-  });
+  }); */
 
   return (
-    <HeaderStyled ref={hero}>
-      <nav>
-        <div className="logo">
-          <Image src={logo} alt="logo" width={100} />
-        </div>
-        {/* <div className="input">
-          <input type="text" placeholder="Search" />
-        </div> */}
-        <ul className="nav-items">
-            {links.map(({label, route}) => (
-              <li key={route}>
-                <a href={route}>
-                  {label}
-                </a>
-              </li>
-            ))}
-        </ul>
-      </nav>
+    <HeaderStyled /* ref={hero} */>
       <div className="header-content">
         <div className="text-content">
           <h1 className={abril.className}>
@@ -97,22 +55,22 @@ export function Header() {
             <Button name="Visita el Portafolio" />
           </div> */}
         </div>
-        <div className="image-content" style={{ transform: "scale(1)" }}>
+        <div className="image-content" /* style={{ transform: "scale(1)" }} */>
           <div style={{ display: "flex" }}>
             <div
               className="image"
-              style={{
+             /*  style={{
                 transform: hoverHero.transform,
-              }}
+              }} */
             >
               <Image
                 src="/images/ctoplady.jpg"
                 width={400}
                 height={400}
                 alt="hero"
-                style={{
+                /* style={{
                   transform: imageHover.transform,
-                }}
+                }} */
               />
             </div>
           </div>
@@ -123,52 +81,7 @@ export function Header() {
 }
 
 const HeaderStyled = styled.header`
-  nav {
-    padding: 0 4rem;
-    min-height: 10vh;
-    border-bottom: 1px solid var(--color-border);
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      cursor: pointer;
-    }
-
-    .input {
-      flex: 2;
-      display: flex;
-      justify-content: center;
-      input {
-        width: 55%;
-        padding: 0.6rem 0.8rem;
-        border-radius: 8px;
-        background-color: #161616;
-        border: 1px solid var(--color-border);
-        &::placeholder {
-          color: var(--color-border);
-          font-weight: 500;
-        }
-      }
-    }
-
-    .nav-items {
-      display: flex;
-      align-items: center;
-      gap: 2rem;
-      li {
-        transition: all 0.2s ease-in-out;
-
-        &:hover {
-          color: white;
-          transform: scale(1.1);
-        }
-      }
-    }
-  }
-
+ 
   .header-content {
     position: static; /* Cambiamos la posición a estática */
     background-image: url("HOME.png");
@@ -181,6 +94,8 @@ const HeaderStyled = styled.header`
     align-items: center;
     gap: 4rem;
     min-height: calc(100vh - 10vh);
+    color: ${props => props.theme.color};
+
     .text-content {
       > h1 {
         font-size: clamp(1rem, 5vw, 3rem);
@@ -200,7 +115,7 @@ const HeaderStyled = styled.header`
     }
     .text-content {
       > h1 > span {
-        color: white;
+        color: ${props => props.theme.secondary};
         font-family: "Poppins", sans-serif;
         font-weight: bold;
         font-size: 90%;
@@ -226,5 +141,3 @@ const HeaderStyled = styled.header`
     }
   }
 `;
-
-
