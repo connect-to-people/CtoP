@@ -10,6 +10,7 @@ import LightModeIcon from '@mui/icons-material/LightMode';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import { darkTheme, defaultTheme } from "../themes/styles";
 import Link from "next/link";
+import { useEffect } from "react";
 
 
 const links = [
@@ -36,15 +37,19 @@ const links = [
   {
     label: 'Contactos',
     route: '/',
-  },
-  {
-    label: 'Blog',
-    route: '/blog',
   }
 ]
 
 export function NavBar() {
-  const [theme, setTheme] = useLocalStorage("theme", defaultTheme);
+  const [theme, setTheme] = useLocalStorage("theme");
+
+
+  useEffect(() => {
+    if(!theme) {
+      setTheme(defaultTheme);
+      return
+    }
+  },[theme])
 
   const toggleTheme = () => {
     setTheme(theme.name === defaultTheme.name ? darkTheme : defaultTheme);
@@ -54,7 +59,7 @@ export function NavBar() {
   return (
     <NavBarStyled>
         <Link href={'/'} className="logo">
-          {theme.name === "dark" 
+          {theme?.name === "dark" 
           ? <Image src={logoDarkMode} alt="logo" width={100} /> 
           : <Image src={logo} alt="logo" width={100} />}
         </Link>
@@ -70,7 +75,7 @@ export function NavBar() {
               </li>
             ))}
           <IconButton onClick={toggleTheme}>
-          {theme.name === 'dark' ? <LightMode /> : <DarkMode />}
+          {theme?.name === 'dark' ? <LightMode /> : <DarkMode />}
           </IconButton>
         </Links>
     </NavBarStyled>
@@ -78,6 +83,9 @@ export function NavBar() {
 }
 
 const NavBarStyled = styled.nav`
+    position: sticky;
+    z-index: 500;
+    top: 0;
     background-color: ${props => props.theme.backgroundColor};
     color: ${props => props.theme.color};
     padding: 0 4rem;
@@ -128,6 +136,13 @@ const NavBarStyled = styled.nav`
       display: flex;
       align-items: center;
       gap: 2rem;
+
+      li{
+        &:hover {
+            color: white;
+            transform: scale(1.1);
+          }
+      }
     `;
 
   const LightMode = styled(LightModeIcon)`

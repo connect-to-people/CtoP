@@ -2,6 +2,8 @@
 import { styled } from "styled-components";
 import { useLocalStorage } from "usehooks-ts";
 import Header from "./components/Header";
+import AboutUs from "./components/AboutUs";
+import Services from "./components/Services";
 
 export default function Home() {
   const [theme] = useLocalStorage("theme");
@@ -9,6 +11,8 @@ export default function Home() {
   return (
     <Container>
       <Header/>
+      <AboutUs/>
+      <Services/>
     </Container>
   );
 }
