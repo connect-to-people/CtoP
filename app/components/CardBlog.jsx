@@ -84,6 +84,7 @@ const InfoBox = styled.div`
     width: fit-content;
     margin-top: 15px;
     font-size: 12px;
+    cursor: pointer;
   }
 `;
 
